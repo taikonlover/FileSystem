@@ -47,15 +47,17 @@ class FS
 
 public:
     string workpath;
-    FS(char *file);
-    ~FS();
+    FS(char *file); // 对磁盘格式化，或导入已有的磁盘文件
+    ~FS();          // 写回磁盘并保存
+
+    /*------------------ 原子操作(只允许在当前目录下操作) --------------------------------------*/
     int open(const char *, char mod); // 返回一个 wptr，只能打开当前目录的文件
     void write(int, const char *);    // 写文件，第一个参数为写指针，第二个参数为写的内容
     void close(int);                  // 关闭文件
     void read(int);                   // 读文件，参数为读指针
     void rm(int);                     // 删除文件，需要先打开文件才能删除
 
-    /*--------------------- 允许任何在路径下操作(只有 changedir 会改变工作路径)------------------------------*/
+    /*--------------------- 允许任何在路径下操作(只有changedir 会改变工作路径)------------------------------*/
     int changedir(const char *);                // 切换工作目录
     void createfile(const char *);              // 创建文件，参数为文件路径
     void removedir(const char *);               // 删除文件夹，参数为文件夹路径

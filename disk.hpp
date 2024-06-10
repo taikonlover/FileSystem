@@ -58,7 +58,7 @@ union block // 磁盘块，有两种组织形式，普通文件目录的形式
 {
 public:
     char data[BLOCK_SIZE];
-    entry entries[8];
+    entry entries[ENTRIES_PER_BLOCK];
     block();
 };
 
