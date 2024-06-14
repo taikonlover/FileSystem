@@ -17,6 +17,9 @@
 ![alt text](image-7.png)
 
 文件说明：
+
+obj 二进制文件已经打包成zip文件，将文件解压缩后移到外面的hpp文件的相同目录下即可运行
+
 disk.exe、FS.exe 文件为对应 .hpp 文件对应的共享目标文件，可以链接使用
 
 main.exe 为可执行文件
